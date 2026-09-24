@@ -63,16 +63,16 @@ Create the name of the service account to use
 
 {{/*
 Return whether deprecated opensearch.opster.io/v1 API support is enabled.
-Missing legacyAPI values default to true for upgrade compatibility.
+Missing legacyAPI values default to false in this isolated fork.
 */}}
 {{- define "opensearch-operator.legacyAPIEnabled" -}}
 {{- if hasKey .Values "legacyAPI" -}}
 {{- if .Values.legacyAPI -}}
-{{- ne .Values.legacyAPI.enabled false -}}
+{{- eq .Values.legacyAPI.enabled true -}}
 {{- else -}}
-true
+false
 {{- end -}}
 {{- else -}}
-true
+false
 {{- end -}}
 {{- end }}

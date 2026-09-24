@@ -967,7 +967,7 @@ spec:
 > **Note:** The init container queries the Kubernetes API for the node object, so the pods'
 `ServiceAccount` must be allowed to `get` `nodes`. By default (no `spec.general.serviceAccount`
 set) the operator handles this for you: it creates a dedicated `ServiceAccount` for the
-cluster and binds it to the shared `opensearch-node-attributes` `ClusterRole` shipped by
+cluster and binds it to the shared `sage-opensearch-node-attributes` `ClusterRole` shipped by
 the operator's Helm chart — no manual RBAC required. If you set a custom `spec.general.serviceAccount`,
 the operator leaves RBAC to you and you must grant that account `get` on `nodes` yourself
 (see the [example manifest](../../opensearch-operator/examples/opensearch-zone-awareness.yaml)).

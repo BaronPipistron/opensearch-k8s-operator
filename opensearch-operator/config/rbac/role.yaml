@@ -76,7 +76,7 @@ rules:
   - watch
 - apiGroups:
   - opensearch.opster.io
-  - opensearch.org
+  - sage.opensearch.org
   resources:
   - opensearchactiongroups
   - opensearchclusters
@@ -98,7 +98,7 @@ rules:
   - watch
 - apiGroups:
   - opensearch.opster.io
-  - opensearch.org
+  - sage.opensearch.org
   resources:
   - opensearchactiongroups/finalizers
   - opensearchclusters/finalizers
@@ -114,7 +114,7 @@ rules:
   - update
 - apiGroups:
   - opensearch.opster.io
-  - opensearch.org
+  - sage.opensearch.org
   resources:
   - opensearchactiongroups/status
   - opensearchclusters/status
@@ -157,7 +157,7 @@ rules:
 - apiGroups:
   - rbac.authorization.k8s.io
   resourceNames:
-  - opensearch-node-attributes
+  - sage-opensearch-node-attributes
   resources:
   - clusterroles
   verbs:

@@ -107,7 +107,7 @@ replacements:
 - source:
     fieldPath: metadata.name
     kind: ClusterRole
-    name: opensearch-node-attributes
+    name: sage-opensearch-node-attributes
     version: v1
   targets:
   - fieldPaths:

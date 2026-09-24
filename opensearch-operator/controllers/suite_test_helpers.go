@@ -203,7 +203,7 @@ func ComposeOpensearchCrd(clusterName string, namespace string) opensearchv1.Ope
 	OpensearchCluster := &opensearchv1.OpenSearchCluster{
 		TypeMeta: metav1.TypeMeta{
 			Kind:       "OpenSearchCluster",
-			APIVersion: "opensearch.org/v1",
+			APIVersion: "sage.opensearch.org/v1",
 		},
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      clusterName,

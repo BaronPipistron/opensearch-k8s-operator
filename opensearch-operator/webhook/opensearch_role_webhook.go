@@ -29,7 +29,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 )
 
-//+kubebuilder:webhook:path=/validate-opensearch-org-v1-opensearchrole,mutating=false,failurePolicy=fail,sideEffects=None,groups=opensearch.org,resources=opensearchroles,verbs=create;update,versions=v1,name=vopensearchrole.opensearch.org,admissionReviewVersions=v1
+//+kubebuilder:webhook:path=/validate-sage-opensearch-org-v1-opensearchrole,mutating=false,failurePolicy=fail,sideEffects=None,groups=sage.opensearch.org,resources=opensearchroles,verbs=create;update,versions=v1,name=vopensearchrole.sage.opensearch.org,admissionReviewVersions=v1
 
 type OpenSearchRoleValidator struct {
 	Client  client.Client

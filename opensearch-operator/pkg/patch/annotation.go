@@ -28,7 +28,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 )
 
-const LastAppliedConfig = "opensearch.org/last-applied"
+const LastAppliedConfig = "sage.opensearch.org/last-applied"
 
 // MaxAnnotationSize is the maximum size for a single annotation value.
 // Kubernetes limits total annotations to 262144 bytes, but we use a lower

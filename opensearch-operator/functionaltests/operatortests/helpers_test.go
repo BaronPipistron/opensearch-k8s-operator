@@ -262,7 +262,7 @@ var (
 
 // getAccessibleClusterURL returns a cluster URL that can be accessed from outside the k3d cluster.
 // For k3d clusters, we expose the OpenSearch service via a NodePort and access it through localhost.
-// useOldAPI: true to use old API group label (opster.io/opensearch-cluster), false for new API group label (opensearch.org/opensearch-cluster)
+// useOldAPI: true to use old API group label (opster.io/opensearch-cluster), false for new API group label (sage.opensearch.org/opensearch-cluster)
 func getAccessibleClusterURL(k8sClient client.Client, cluster *opensearchv1.OpenSearchCluster, useOldAPI bool) (string, error) {
 	httpPort := cluster.Spec.General.HttpPort
 	if httpPort == 0 {
@@ -276,7 +276,7 @@ func getAccessibleClusterURL(k8sClient client.Client, cluster *opensearchv1.Open
 	const nodePort int32 = 30000 // must match k3d port mapping (30000-30005)
 
 	// Use appropriate label based on API group
-	clusterLabel := helpers.ClusterLabel // "opensearch.org/opensearch-cluster"
+	clusterLabel := helpers.ClusterLabel // "sage.opensearch.org/opensearch-cluster"
 	if useOldAPI {
 		clusterLabel = helpers.OldClusterLabel
 	}

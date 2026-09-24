@@ -18,4 +18,4 @@ data:
       port: {{ .Values.webhook.port }}
     leaderElection:
       leaderElect: true
-      resourceName: a867c7dc.opensearch.opensearch.org
+      resourceName: a867c7dc.opensearch.sage.opensearch.org

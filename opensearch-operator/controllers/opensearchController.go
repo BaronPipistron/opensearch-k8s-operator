@@ -46,7 +46,7 @@ import (
 )
 
 // OpenSearchClusterReconciler reconciles a OpenSearchCluster object
-// Now reconciles opensearch.org/v1 API group (new API) instead of opensearch.opster.io/v1 (old API)
+// Now reconciles sage.opensearch.org/v1 API group (new API) instead of opensearch.opster.io/v1 (old API)
 // Per-request state (cluster instance and logger) is kept off this struct so
 // MaxConcurrentReconciles > 1 cannot leak state between in-flight reconciles.
 type OpenSearchClusterReconciler struct {
@@ -59,9 +59,9 @@ type OpenSearchClusterReconciler struct {
 	osClientTransport http.RoundTripper
 }
 
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchclusters,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchclusters/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchclusters/finalizers,verbs=update
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchclusters,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchclusters/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchclusters/finalizers,verbs=update
 //+kubebuilder:rbac:groups=opensearch.opster.io,resources=opensearchclusters,verbs=get;list;watch
 //+kubebuilder:rbac:groups=opensearch.opster.io,resources=opensearchclusters/status,verbs=get
 //+kubebuilder:rbac:groups=apps,resources=statefulsets,verbs=get;list;watch;create;update;patch;delete
@@ -78,7 +78,7 @@ type OpenSearchClusterReconciler struct {
 //+kubebuilder:rbac:groups=monitoring.coreos.com,resources=servicemonitors,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=core,resources=serviceaccounts,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=rbac.authorization.k8s.io,resources=clusterrolebindings,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=rbac.authorization.k8s.io,resources=clusterroles,resourceNames=opensearch-node-attributes,verbs=bind
+//+kubebuilder:rbac:groups=rbac.authorization.k8s.io,resources=clusterroles,resourceNames=sage-opensearch-node-attributes,verbs=bind
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -90,8 +90,8 @@ type OpenSearchClusterReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.8.3/pkg/reconcile
 func (r *OpenSearchClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	logger := log.FromContext(ctx).WithValues("cluster", req.NamespacedName, "apiGroup", "opensearch.org/v1")
-	logger.Info("Reconciling OpenSearchCluster (opensearch.org/v1)")
+	logger := log.FromContext(ctx).WithValues("cluster", req.NamespacedName, "apiGroup", "sage.opensearch.org/v1")
+	logger.Info("Reconciling OpenSearchCluster (sage.opensearch.org/v1)")
 	myFinalizerName := "Opensearch"
 
 	// Try to get new API group resource first

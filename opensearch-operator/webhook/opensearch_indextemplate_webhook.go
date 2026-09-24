@@ -30,7 +30,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 )
 
-//+kubebuilder:webhook:path=/validate-opensearch-org-v1-opensearchindextemplate,mutating=false,failurePolicy=fail,sideEffects=None,groups=opensearch.org,resources=opensearchindextemplates,verbs=create;update,versions=v1,name=vopensearchindextemplate.opensearch.org,admissionReviewVersions=v1
+//+kubebuilder:webhook:path=/validate-sage-opensearch-org-v1-opensearchindextemplate,mutating=false,failurePolicy=fail,sideEffects=None,groups=sage.opensearch.org,resources=opensearchindextemplates,verbs=create;update,versions=v1,name=vopensearchindextemplate.sage.opensearch.org,admissionReviewVersions=v1
 
 type OpenSearchIndexTemplateValidator struct {
 	Client  client.Client

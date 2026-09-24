@@ -8,10 +8,10 @@ import (
 const (
 	DashboardConfigName          = "opensearch_dashboards.yml"
 	DashboardChecksumName        = "checksum/dashboards.yml"
-	ClusterLabel                 = "opensearch.org/opensearch-cluster"
+	ClusterLabel                 = "sage.opensearch.org/opensearch-cluster"
 	OldClusterLabel              = "opster.io/opensearch-cluster"
-	JobLabel                     = "opensearch.org/opensearch-job"
-	NodePoolLabel                = "opensearch.org/opensearch-nodepool"
+	JobLabel                     = "sage.opensearch.org/opensearch-job"
+	NodePoolLabel                = "sage.opensearch.org/opensearch-nodepool"
 	OldNodePoolLabel             = "opster.io/opensearch-nodepool"
 	OsUserNameAnnotation         = "opensearchuser/name"
 	OsUserNamespaceAnnotation    = "opensearchuser/namespace"

@@ -2,7 +2,7 @@
 # This file is used to track the info used to scaffold your project
 # and allow the plugins properly work.
 # More info: https://book.kubebuilder.io/reference/project-config.html
-domain: opensearch.org
+domain: sage.opensearch.org
 layout:
 - go.kubebuilder.io/v4
 projectName: opensearch-operator
@@ -99,13 +99,13 @@ resources:
   kind: OpensearchComponentTemplate
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/v1
   version: v1
-# New opensearch.org API group resources
+# New sage.opensearch.org API group resources
 - api:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpenSearchCluster
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -113,8 +113,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchUser
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -122,8 +122,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchRole
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -131,8 +131,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchUserRoleBinding
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -140,8 +140,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchTenant
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -149,8 +149,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchActionGroup
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -158,8 +158,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpenSearchISMPolicy
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -167,8 +167,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchSnapshotPolicy
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -176,8 +176,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchIndexTemplate
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1
@@ -185,8 +185,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: opensearch.org
-  group: opensearch.org
+  domain: sage.opensearch.org
+  group: sage.opensearch.org
   kind: OpensearchComponentTemplate
   path: github.com/opensearch-project/opensearch-k8s-operator/opensearch-operator/api/opensearch.org/v1
   version: v1

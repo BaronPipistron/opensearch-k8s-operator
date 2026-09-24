@@ -2,6 +2,11 @@
 
 # OpenSearch Kubernetes Operator
 
+> This fork uses the isolated `sage.opensearch.org/v1` API group for a second
+> Helm installation alongside an existing operator. See the
+> [Sage API group installation guide](./docs/sage-api-group.md). Build this
+> fork's operator image before installing its chart.
+
 The Kubernetes OpenSearch Operator is used for automating the deployment, provisioning, management, and orchestration of OpenSearch clusters and OpenSearch dashboards.
 
 > **API Group Migration Notice:** The operator is migrating from `opensearch.opster.io` to `opensearch.org` API group. Both are currently supported, but `opensearch.opster.io` is deprecated. Please see the Migration Guide for details.

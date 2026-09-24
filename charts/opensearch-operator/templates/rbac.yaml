@@ -87,7 +87,7 @@ rules:
   {{- if eq (include "opensearch-operator.legacyAPIEnabled" .) "true" }}
   - opensearch.opster.io
   {{- end }}
-  - opensearch.org
+  - sage.opensearch.org
   resources:
   - opensearchactiongroups
   - opensearchclusters
@@ -111,7 +111,7 @@ rules:
   {{- if eq (include "opensearch-operator.legacyAPIEnabled" .) "true" }}
   - opensearch.opster.io
   {{- end }}
-  - opensearch.org
+  - sage.opensearch.org
   resources:
   - opensearchactiongroups/finalizers
   - opensearchclusters/finalizers
@@ -129,7 +129,7 @@ rules:
   {{- if eq (include "opensearch-operator.legacyAPIEnabled" .) "true" }}
   - opensearch.opster.io
   {{- end }}
-  - opensearch.org
+  - sage.opensearch.org
   resources:
   - opensearchactiongroups/status
   - opensearchclusters/status
@@ -175,7 +175,7 @@ rules:
   resources:
   - clusterroles
   resourceNames:
-  - opensearch-node-attributes
+  - sage-opensearch-node-attributes
   verbs:
   - bind
 {{- end }}
@@ -189,7 +189,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: opensearch-node-attributes
+  name: sage-opensearch-node-attributes
   labels:
     {{- include "opensearch-operator.labels" . | nindent 4 }}
 rules:

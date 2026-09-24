@@ -63,7 +63,7 @@ var _ = Describe("APIGroupMigration", func() {
 		}
 	})
 
-	It("should automatically migrate resources from opensearch.opster.io/v1 to opensearch.org/v1", func() {
+	It("should automatically migrate resources from opensearch.opster.io/v1 to sage.opensearch.org/v1", func() {
 		By(fmt.Sprintf("Step 1: Installing operator version %s (uses opensearch.opster.io/v1)", operatorVersion))
 		err := installOperatorFromHelm(operatorVersion)
 		Expect(err).NotTo(HaveOccurred())
@@ -136,7 +136,7 @@ var _ = Describe("APIGroupMigration", func() {
 		Expect(err).NotTo(HaveOccurred())
 		GinkgoWriter.Printf("  + All old CRDs are ready\n")
 
-		By("Step 5: Upgrading operator to current codebase (uses opensearch.org/v1)")
+		By("Step 5: Upgrading operator to current codebase (uses sage.opensearch.org/v1)")
 		err = upgradeOperatorToCurrent()
 		Expect(err).NotTo(HaveOccurred())
 		GinkgoWriter.Printf("  + Operator upgrade initiated\n")
@@ -148,7 +148,7 @@ var _ = Describe("APIGroupMigration", func() {
 
 		By("Step 6: Verifying migration controller created new API group resources")
 		// Wait for migration to complete
-		err = waitForNewAPIGroupResource(clusterName, namespace, "opensearchclusters", "opensearch.org", time.Minute*5)
+		err = waitForNewAPIGroupResource(clusterName, namespace, "opensearchclusters", "sage.opensearch.org", time.Minute*5)
 		Expect(err).NotTo(HaveOccurred())
 		GinkgoWriter.Printf("  + New API group cluster resource created\n")
 
@@ -157,11 +157,11 @@ var _ = Describe("APIGroupMigration", func() {
 		newCluster := &opensearchv1.OpenSearchCluster{}
 		err = k8sClient.Get(context.Background(), client.ObjectKey{Name: clusterName, Namespace: namespace}, newCluster)
 		Expect(err).NotTo(HaveOccurred())
-		GinkgoWriter.Printf("  + New API group cluster verified (opensearch.org/v1)\n")
+		GinkgoWriter.Printf("  + New API group cluster verified (sage.opensearch.org/v1)\n")
 
 		// Verify migration annotations
-		Expect(newCluster.Annotations).To(HaveKey("opensearch.org/migrated-from"))
-		Expect(newCluster.Annotations["opensearch.org/migrated-from"]).To(Equal("opensearch.opster.io/v1"))
+		Expect(newCluster.Annotations).To(HaveKey("sage.opensearch.org/migrated-from"))
+		Expect(newCluster.Annotations["sage.opensearch.org/migrated-from"]).To(Equal("opensearch.opster.io/v1"))
 		GinkgoWriter.Printf("  + Migration annotations verified\n")
 
 		By("Step 7: Verifying both old and new resources exist")
@@ -214,13 +214,13 @@ var _ = Describe("APIGroupMigration", func() {
 
 		By("Step 10: Verifying test CRDs were migrated")
 		// Wait for CRD migration
-		err = waitForNewAPIGroupResource("migration-test-action-group", namespace, "opensearchactiongroups", "opensearch.org", time.Minute*2)
+		err = waitForNewAPIGroupResource("migration-test-action-group", namespace, "opensearchactiongroups", "sage.opensearch.org", time.Minute*2)
 		Expect(err).NotTo(HaveOccurred())
 
-		err = waitForNewAPIGroupResource("migration-test-role", namespace, "opensearchroles", "opensearch.org", time.Minute*2)
+		err = waitForNewAPIGroupResource("migration-test-role", namespace, "opensearchroles", "sage.opensearch.org", time.Minute*2)
 		Expect(err).NotTo(HaveOccurred())
 
-		err = waitForNewAPIGroupResource("migration-test-user", namespace, "opensearchusers", "opensearch.org", time.Minute*2)
+		err = waitForNewAPIGroupResource("migration-test-user", namespace, "opensearchusers", "sage.opensearch.org", time.Minute*2)
 		Expect(err).NotTo(HaveOccurred())
 
 		GinkgoWriter.Printf("  + All test CRDs migrated successfully\n")
@@ -275,8 +275,8 @@ var _ = Describe("APIGroupMigration", func() {
 	//		Expect(err).NotTo(HaveOccurred())
 	//
 	//		// Add finalizer manually to simulate migration controller behavior
-	//		if !containsString(oldCluster.Finalizers, "opensearch.org/migration") {
-	//			oldCluster.Finalizers = append(oldCluster.Finalizers, "migration.opensearch.org/finalizer")
+	//		if !containsString(oldCluster.Finalizers, "sage.opensearch.org/migration") {
+	//			oldCluster.Finalizers = append(oldCluster.Finalizers, "migration.sage.opensearch.org/finalizer")
 	//			err = k8sClient.Update(context.Background(), oldCluster)
 	//			Expect(err).NotTo(HaveOccurred())
 	//		}
@@ -295,7 +295,7 @@ var _ = Describe("APIGroupMigration", func() {
 	//		GinkgoWriter.Printf("  + Old resource deletion is blocked (finalizer present, new resource not found)\n")
 	//
 	//		// Now wait for migration to complete
-	//		err = waitForNewAPIGroupResource(clusterName+"-deletion-test", namespace, "opensearchclusters", "opensearch.org", time.Minute*5)
+	//		err = waitForNewAPIGroupResource(clusterName+"-deletion-test", namespace, "opensearchclusters", "sage.opensearch.org", time.Minute*5)
 	//		Expect(err).NotTo(HaveOccurred())
 	//
 	//		// Once new resource exists, old resource should be deletable
@@ -495,9 +495,9 @@ func createOldAPIGroupTestCRDs(clusterName, namespace string) error {
 // cleanupMigrationTestCRDs cleans up test CRDs from both API groups
 func cleanupMigrationTestCRDs(clusterName, namespace string) {
 	// Clean up new API group CRDs
-	cleanupNewAPIGroupCRD("migration-test-action-group", namespace, "opensearchactiongroups", "opensearch.org")
-	cleanupNewAPIGroupCRD("migration-test-role", namespace, "opensearchroles", "opensearch.org")
-	cleanupNewAPIGroupCRD("migration-test-user", namespace, "opensearchusers", "opensearch.org")
+	cleanupNewAPIGroupCRD("migration-test-action-group", namespace, "opensearchactiongroups", "sage.opensearch.org")
+	cleanupNewAPIGroupCRD("migration-test-role", namespace, "opensearchroles", "sage.opensearch.org")
+	cleanupNewAPIGroupCRD("migration-test-user", namespace, "opensearchusers", "sage.opensearch.org")
 
 	// Clean up old API group CRDs
 	cleanupOldAPIGroupCRD("migration-test-action-group", namespace, "opensearchactiongroups", "opensearch.opster.io")
@@ -781,7 +781,7 @@ func cleanupMigrationTestResources(clusterName, namespace string) {
 	By("Waiting for OpenSearchCluster resources to be fully deleted")
 	for _, cn := range clusterNames {
 		// Wait for new API group cluster deletion
-		_ = waitForResourceDeletion(cn, namespace, "opensearchclusters", "opensearch.org", time.Minute*2)
+		_ = waitForResourceDeletion(cn, namespace, "opensearchclusters", "sage.opensearch.org", time.Minute*2)
 		// Wait for old API group cluster deletion
 		_ = waitForResourceDeletion(cn, namespace, "opensearchclusters", "opensearch.opster.io", time.Minute*2)
 	}

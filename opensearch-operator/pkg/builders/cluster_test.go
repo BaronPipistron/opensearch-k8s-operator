@@ -1019,7 +1019,7 @@ var _ = Describe("Builders", func() {
 			// A typed client always serializes confMgmt (smartScaler has no omitempty),
 			// so mimic a user manifest that omits the block entirely.
 			obj := &unstructured.Unstructured{Object: map[string]interface{}{
-				"apiVersion": "opensearch.org/v1",
+				"apiVersion": "sage.opensearch.org/v1",
 				"kind":       "OpenSearchCluster",
 				"metadata":   map[string]interface{}{"name": "no-confmgmt", "namespace": namespaceName},
 				"spec": map[string]interface{}{
@@ -1038,7 +1038,7 @@ var _ = Describe("Builders", func() {
 			namespaceName := "confmgmt-finalizer"
 			Expect(CreateNamespace(k8sClient, namespaceName)).Should(Succeed())
 			obj := &unstructured.Unstructured{Object: map[string]interface{}{
-				"apiVersion": "opensearch.org/v1",
+				"apiVersion": "sage.opensearch.org/v1",
 				"kind":       "OpenSearchCluster",
 				"metadata":   map[string]interface{}{"name": "confmgmt-update", "namespace": namespaceName},
 				"spec": map[string]interface{}{
@@ -1066,7 +1066,7 @@ var _ = Describe("Builders", func() {
 			namespaceName := "confmgmt-explicit-false"
 			Expect(CreateNamespace(k8sClient, namespaceName)).Should(Succeed())
 			obj := &unstructured.Unstructured{Object: map[string]interface{}{
-				"apiVersion": "opensearch.org/v1",
+				"apiVersion": "sage.opensearch.org/v1",
 				"kind":       "OpenSearchCluster",
 				"metadata":   map[string]interface{}{"name": "confmgmt-false", "namespace": namespaceName},
 				"spec": map[string]interface{}{
@@ -1086,7 +1086,7 @@ var _ = Describe("Builders", func() {
 			namespaceName := "confmgmt-empty-object"
 			Expect(CreateNamespace(k8sClient, namespaceName)).Should(Succeed())
 			obj := &unstructured.Unstructured{Object: map[string]interface{}{
-				"apiVersion": "opensearch.org/v1",
+				"apiVersion": "sage.opensearch.org/v1",
 				"kind":       "OpenSearchCluster",
 				"metadata":   map[string]interface{}{"name": "confmgmt-empty", "namespace": namespaceName},
 				"spec": map[string]interface{}{
@@ -2046,7 +2046,7 @@ var _ = Describe("Builders", func() {
 			// per-cluster one, so the operator needs no ClusterRole create rights.
 			Expect(crb.RoleRef.Kind).To(Equal("ClusterRole"))
 			Expect(crb.RoleRef.Name).To(Equal(NodeAttributesClusterRoleName))
-			Expect(NodeAttributesClusterRoleName).To(Equal("opensearch-node-attributes"))
+			Expect(NodeAttributesClusterRoleName).To(Equal("sage-opensearch-node-attributes"))
 			Expect(crb.Subjects).To(HaveLen(1))
 			Expect(crb.Subjects[0].Kind).To(Equal("ServiceAccount"))
 			Expect(crb.Subjects[0].Name).To(Equal("mycluster-node-attributes"))

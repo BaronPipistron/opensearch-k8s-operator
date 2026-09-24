@@ -30,7 +30,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 )
 
-//+kubebuilder:webhook:path=/validate-opensearch-org-v1-opensearchcluster,mutating=false,failurePolicy=fail,sideEffects=None,groups=opensearch.org,resources=opensearchclusters,verbs=create;update,versions=v1,name=vopensearchcluster.opensearch.org,admissionReviewVersions=v1
+//+kubebuilder:webhook:path=/validate-sage-opensearch-org-v1-opensearchcluster,mutating=false,failurePolicy=fail,sideEffects=None,groups=sage.opensearch.org,resources=opensearchclusters,verbs=create;update,versions=v1,name=vopensearchcluster.sage.opensearch.org,admissionReviewVersions=v1
 
 type OpenSearchClusterValidator struct {
 	Client  client.Client

@@ -29,7 +29,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 )
 
-//+kubebuilder:webhook:path=/validate-opensearch-org-v1-opensearchtenant,mutating=false,failurePolicy=fail,sideEffects=None,groups=opensearch.org,resources=opensearchtenants,verbs=create;update,versions=v1,name=vopensearchtenant.opensearch.org,admissionReviewVersions=v1
+//+kubebuilder:webhook:path=/validate-sage-opensearch-org-v1-opensearchtenant,mutating=false,failurePolicy=fail,sideEffects=None,groups=sage.opensearch.org,resources=opensearchtenants,verbs=create;update,versions=v1,name=vopensearchtenant.sage.opensearch.org,admissionReviewVersions=v1
 
 type OpenSearchTenantValidator struct {
 	Client  client.Client

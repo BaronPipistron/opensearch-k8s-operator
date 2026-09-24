@@ -1,4 +1,4 @@
-apiVersion: opensearch.org/v1
+apiVersion: sage.opensearch.org/v1
 kind: OpenSearchCluster
 metadata:
   name: test-cluster

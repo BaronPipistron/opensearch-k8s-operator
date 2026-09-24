@@ -30,12 +30,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchactiongroup
+      path: /validate-sage-opensearch-org-v1-opensearchactiongroup
   failurePolicy: Fail
-  name: vopensearchactiongroup.opensearch.org
+  name: vopensearchactiongroup.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -70,12 +70,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchcluster
+      path: /validate-sage-opensearch-org-v1-opensearchcluster
   failurePolicy: Fail
-  name: vopensearchcluster.opensearch.org
+  name: vopensearchcluster.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -110,12 +110,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchcomponenttemplate
+      path: /validate-sage-opensearch-org-v1-opensearchcomponenttemplate
   failurePolicy: Fail
-  name: vopensearchcomponenttemplate.opensearch.org
+  name: vopensearchcomponenttemplate.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -150,12 +150,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchindextemplate
+      path: /validate-sage-opensearch-org-v1-opensearchindextemplate
   failurePolicy: Fail
-  name: vopensearchindextemplate.opensearch.org
+  name: vopensearchindextemplate.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -190,12 +190,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchismpolicy
+      path: /validate-sage-opensearch-org-v1-opensearchismpolicy
   failurePolicy: Fail
-  name: vopensearchismpolicy.opensearch.org
+  name: vopensearchismpolicy.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -230,12 +230,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchrole
+      path: /validate-sage-opensearch-org-v1-opensearchrole
   failurePolicy: Fail
-  name: vopensearchrole.opensearch.org
+  name: vopensearchrole.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -270,12 +270,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchsnapshotpolicy
+      path: /validate-sage-opensearch-org-v1-opensearchsnapshotpolicy
   failurePolicy: Fail
-  name: vopensearchsnapshotpolicy.opensearch.org
+  name: vopensearchsnapshotpolicy.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -310,12 +310,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchtenant
+      path: /validate-sage-opensearch-org-v1-opensearchtenant
   failurePolicy: Fail
-  name: vopensearchtenant.opensearch.org
+  name: vopensearchtenant.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -350,12 +350,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchuser
+      path: /validate-sage-opensearch-org-v1-opensearchuser
   failurePolicy: Fail
-  name: vopensearchuser.opensearch.org
+  name: vopensearchuser.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:
@@ -390,12 +390,12 @@ webhooks:
     service:
       name: webhook-service
       namespace: system
-      path: /validate-opensearch-org-v1-opensearchuserrolebinding
+      path: /validate-sage-opensearch-org-v1-opensearchuserrolebinding
   failurePolicy: Fail
-  name: vopensearchuserrolebinding.opensearch.org
+  name: vopensearchuserrolebinding.sage.opensearch.org
   rules:
   - apiGroups:
-    - opensearch.org
+    - sage.opensearch.org
     apiVersions:
     - v1
     operations:

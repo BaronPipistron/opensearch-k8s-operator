@@ -9,13 +9,13 @@
 # the pods' ServiceAccount must be allowed to "get" nodes. When no
 # spec.general.serviceAccount is set (as below) the operator handles this
 # automatically: it creates a dedicated ServiceAccount for the cluster and binds
-# it to the shared "opensearch-node-attributes" ClusterRole shipped by the
+# it to the shared "sage-opensearch-node-attributes" ClusterRole shipped by the
 # operator's Helm chart. No manual RBAC is required.
 #
 # If you instead set a custom spec.general.serviceAccount, the operator will NOT
 # manage RBAC for it and you must grant that ServiceAccount "get" on nodes
 # yourself (see the commented-out ClusterRole/ClusterRoleBinding at the bottom).
-apiVersion: opensearch.org/v1
+apiVersion: sage.opensearch.org/v1
 kind: OpenSearchCluster
 metadata:
   name: my-cluster
@@ -49,13 +49,13 @@ spec:
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
-              opensearch.org/opensearch-nodepool: data
+              sage.opensearch.org/opensearch-nodepool: data
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
-              opensearch.org/opensearch-nodepool: data
+              sage.opensearch.org/opensearch-nodepool: data
 #
 # --- Alternative: bring your own ServiceAccount ---------------------------------
 #
