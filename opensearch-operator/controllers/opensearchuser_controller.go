@@ -43,11 +43,11 @@ type OpensearchUserReconciler struct {
 	Recorder record.EventRecorder
 }
 
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchusers,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchusers/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchusers/finalizers,verbs=update
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchusers,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchusers/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchusers/finalizers,verbs=update
 //+kubebuilder:rbac:groups=opensearch.opster.io,resources=opensearchusers,verbs=get;list;watch
-//+kubebuilder:rbac:groups=opensearch.org,resources=opensearchclusters,verbs=get;list;watch
+//+kubebuilder:rbac:groups=sage.opensearch.org,resources=opensearchclusters,verbs=get;list;watch
 //+kubebuilder:rbac:groups=core,resources=secrets,verbs=get;list;watch
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to

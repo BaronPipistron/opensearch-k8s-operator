@@ -178,7 +178,7 @@ func main() {
 		},
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "a867c7dc.opensearch.org",
+		LeaderElectionID:       "a867c7dc.sage.opensearch.org",
 		Cache:                  cacheOpts,
 		WebhookServer:          webhookServer,
 	})
@@ -199,7 +199,7 @@ func main() {
 		PerController:           perController,
 	}
 
-	// Controllers now watch opensearch.org/v1 (new API group)
+	// Controllers now watch sage.opensearch.org/v1 (new API group)
 	// Migration controller handles creating new CRs from old ones
 	if err = (&controllers.OpenSearchClusterReconciler{
 		Client:                           mgr.GetClient(),
@@ -286,7 +286,7 @@ func main() {
 	}
 
 	registerLegacyAPIComponents(enableLegacyAPI, func() {
-		// Migration controllers for opensearch.opster.io -> opensearch.org migration
+		// Migration controllers for opensearch.opster.io -> sage.opensearch.org migration
 		if err = (&controllers.ClusterMigrationReconciler{
 			Client: mgr.GetClient(),
 			Scheme: mgr.GetScheme(),

@@ -75,12 +75,12 @@ manager:
 
   metricsBindAddress: 127.0.0.1:8080
 
-# Install the Custom Resource Definitions with Helm
+# Install the isolated sage.opensearch.org Custom Resource Definitions with Helm
 installCRDs: true
 
 legacyAPI:
-  # -- Enable support for the deprecated `opensearch.opster.io/v1` API group. When false, deprecated CRDs, webhooks, RBAC rules, and manager watches are skipped.
-  enabled: true
+  # -- Disabled by default: the legacy CRDs may belong to another Helm release in the same cluster.
+  enabled: false
 
 serviceAccount:
   # Specifies whether a service account should be created

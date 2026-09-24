@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	OpensearchFinalizer = "opensearch.org/opensearch-data"
+	OpensearchFinalizer = "sage.opensearch.org/opensearch-data"
 )
 
 // Controller names for per-controller concurrency configuration.

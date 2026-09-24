@@ -338,7 +338,7 @@ var _ = Describe("ClusterMigrationReconciler", func() {
 			reconciler.Client = interceptor.NewClient(watchClient, interceptor.Funcs{
 				Update: func(ctx context.Context, c client.WithWatch, obj client.Object, opts ...client.UpdateOption) error {
 					// Only the legacy (opensearch.opster.io) CR is guarded by the
-					// legacy validating webhook; leave opensearch.org writes alone.
+					// legacy validating webhook; leave sage.opensearch.org writes alone.
 					if _, ok := obj.(*opsterv1.OpenSearchCluster); ok {
 						return fmt.Errorf("admission webhook \"vopensearchcluster.opensearch.opster.io\" denied the request: Direct updates to old API group OpenSearchCluster resources are not allowed")
 					}
@@ -946,7 +946,7 @@ var _ = Describe("ClusterMigrationReconciler", func() {
 				Build()
 
 			created, lagged, conflicted := false, false, false
-			twinGR := schema.GroupResource{Group: "opensearch.org", Resource: "opensearchcomponenttemplates"}
+			twinGR := schema.GroupResource{Group: "sage.opensearch.org", Resource: "opensearchcomponenttemplates"}
 			lagClient := interceptor.NewClient(base, interceptor.Funcs{
 				Create: func(ctx context.Context, c client.WithWatch, obj client.Object, opts ...client.CreateOption) error {
 					err := c.Create(ctx, obj, opts...)

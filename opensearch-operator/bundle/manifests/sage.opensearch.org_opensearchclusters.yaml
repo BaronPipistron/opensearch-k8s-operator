@@ -4,9 +4,9 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.19.0
-  name: opensearchclusters.opensearch.org
+  name: opensearchclusters.sage.opensearch.org
 spec:
-  group: opensearch.org
+  group: sage.opensearch.org
   names:
     kind: OpenSearchCluster
     listKind: OpenSearchClusterList

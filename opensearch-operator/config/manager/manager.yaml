@@ -29,7 +29,7 @@ spec:
         - /manager
         args:
         - --leader-elect
-        - --node-attributes-cluster-role-name=opensearch-node-attributes
+        - --node-attributes-cluster-role-name=sage-opensearch-node-attributes
         image: controller:latest
         imagePullPolicy: IfNotPresent
         name: manager

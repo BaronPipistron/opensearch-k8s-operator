@@ -30,7 +30,7 @@ type TestDataManager struct {
 }
 
 // NewTestDataManager creates a new test data manager
-// useOldAPI: true to use old API group (opensearch.opster.io/v1), false for new API group (opensearch.org/v1)
+// useOldAPI: true to use old API group (opensearch.opster.io/v1), false for new API group (sage.opensearch.org/v1)
 func NewTestDataManager(k8sClient client.Client, clusterName, namespace string, useOldAPI bool) (*TestDataManager, error) {
 	manager := &TestDataManager{
 		k8sClient: k8sClient,
@@ -106,7 +106,7 @@ func NewTestDataManager(k8sClient client.Client, clusterName, namespace string, 
 }
 
 // Reconnect reconnects to the cluster (useful after operations that might change cluster state)
-// useOldAPI: true to use old API group (opensearch.opster.io/v1), false for new API group (opensearch.org/v1)
+// useOldAPI: true to use old API group (opensearch.opster.io/v1), false for new API group (sage.opensearch.org/v1)
 func (m *TestDataManager) Reconnect(useOldAPI bool) error {
 	m.useOldAPI = useOldAPI
 	var cluster *opensearchv1.OpenSearchCluster

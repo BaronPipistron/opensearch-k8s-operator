@@ -81,7 +81,7 @@ const (
 	// existing certificate is renewed (as opposed to created). Its value is
 	// folded into the node pool config hashes so that a renewal changes the pod
 	// templates and the rolling-restart machinery reloads the certificates.
-	CertRenewalAnnotation = "opensearch.org/cert-renewal"
+	CertRenewalAnnotation = "sage.opensearch.org/cert-renewal"
 )
 
 func (r *TLSReconciler) Reconcile() (ctrl.Result, error) {

@@ -32,7 +32,7 @@ var (
 )
 
 const (
-	ConfigurationChecksumAnnotation  = "opensearch.org/config"
+	ConfigurationChecksumAnnotation  = "sage.opensearch.org/config"
 	defaultMonitoringPlugin          = "https://github.com/opensearch-project/opensearch-prometheus-exporter/releases/download/%s.0/prometheus-exporter-%s.0.zip"
 	securityconfigChecksumAnnotation = "securityconfig/checksum"
 	// securityconfigUserChecksumAnnotation stores a checksum of only the user-provided
@@ -50,7 +50,7 @@ const (
 	// ClusterRole that grants "get" on nodes. The operator is allowed to bind
 	// only this role to per-cluster ServiceAccounts, so it never needs broad
 	// node read access, ClusterRole creation rights, or the "escalate" verb.
-	NodeAttributesClusterRoleName = "opensearch-node-attributes"
+	NodeAttributesClusterRoleName = "sage-opensearch-node-attributes"
 )
 
 // nodeAttributesEnabled reports whether the cluster maps any Kubernetes node

@@ -2,27 +2,17 @@
 # since it depends on service name and namespace that are out of this kustomize package.
 # It should be run by config/default
 resources:
-- bases/opensearch.opster.io_opensearchactiongroups.yaml
-- bases/opensearch.opster.io_opensearchclusters.yaml
-- bases/opensearch.opster.io_opensearchcomponenttemplates.yaml
-- bases/opensearch.opster.io_opensearchindextemplates.yaml
-- bases/opensearch.opster.io_opensearchroles.yaml
-- bases/opensearch.opster.io_opensearchtenants.yaml
-- bases/opensearch.opster.io_opensearchuserrolebindings.yaml
-- bases/opensearch.opster.io_opensearchusers.yaml
-- bases/opensearch.opster.io_opensearchismpolicies.yaml
 - bases/crd-servicemonitor.yaml
-- bases/opensearch.opster.io_opensearchsnapshotpolicies.yaml
-- bases/opensearch.org_opensearchclusters.yaml
-- bases/opensearch.org_opensearchusers.yaml
-- bases/opensearch.org_opensearchroles.yaml
-- bases/opensearch.org_opensearchuserrolebindings.yaml
-- bases/opensearch.org_opensearchtenants.yaml
-- bases/opensearch.org_opensearchactiongroups.yaml
-- bases/opensearch.org_opensearchismpolicies.yaml
-- bases/opensearch.org_opensearchsnapshotpolicies.yaml
-- bases/opensearch.org_opensearchindextemplates.yaml
-- bases/opensearch.org_opensearchcomponenttemplates.yaml
+- bases/sage.opensearch.org_opensearchclusters.yaml
+- bases/sage.opensearch.org_opensearchusers.yaml
+- bases/sage.opensearch.org_opensearchroles.yaml
+- bases/sage.opensearch.org_opensearchuserrolebindings.yaml
+- bases/sage.opensearch.org_opensearchtenants.yaml
+- bases/sage.opensearch.org_opensearchactiongroups.yaml
+- bases/sage.opensearch.org_opensearchismpolicies.yaml
+- bases/sage.opensearch.org_opensearchsnapshotpolicies.yaml
+- bases/sage.opensearch.org_opensearchindextemplates.yaml
+- bases/sage.opensearch.org_opensearchcomponenttemplates.yaml
 
 #+kubebuilder:scaffold:crdkustomizeresource
 
@@ -40,7 +30,7 @@ patches:
 #- path: patches/webhook_in_opensearchsnapshotpolicies.yaml
 #- path: patches/webhook_in_opensearchindextemplates.yaml
 #- path: patches/webhook_in_opensearchcomponenttemplates.yaml
-# New API group (opensearch.org)
+# New API group (sage.opensearch.org)
 #- path: patches/webhook_in_opensearch_org.yaml
 #- path: patches/webhook_in_opensearchusers_org.yaml
 #- path: patches/webhook_in_opensearchroles_org.yaml
@@ -56,17 +46,7 @@ patches:
 # [CERTMANAGER] To enable webhook, uncomment all the sections with [CERTMANAGER] prefix.
 # patches here are for enabling the CA injection for each CRD
 # Old API group (opensearch.opster.io)
-- path: patches/cainjection_in_opensearch.yaml
-- path: patches/cainjection_in_opensearchusers.yaml
-- path: patches/cainjection_in_opensearchroles.yaml
-- path: patches/cainjection_in_opensearchuserrolebindings.yaml
-- path: patches/cainjection_in_opensearchtenants.yaml
-- path: patches/cainjection_in_opensearchactiongroups.yaml
-- path: patches/cainjection_in_opensearchismpolicies.yaml
-- path: patches/cainjection_in_opensearchsnapshotpolicies.yaml
-- path: patches/cainjection_in_opensearchindextemplates.yaml
-- path: patches/cainjection_in_opensearchcomponenttemplates.yaml
-# New API group (opensearch.org)
+# New API group (sage.opensearch.org)
 - path: patches/cainjection_in_opensearch_org.yaml
 - path: patches/cainjection_in_opensearchusers_org.yaml
 - path: patches/cainjection_in_opensearchroles_org.yaml
